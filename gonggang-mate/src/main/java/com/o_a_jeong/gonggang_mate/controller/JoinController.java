@@ -3,13 +3,12 @@ package com.o_a_jeong.gonggang_mate.controller;
 import com.o_a_jeong.gonggang_mate.dto.JoinResult;
 import com.o_a_jeong.gonggang_mate.entities.articledb.entity.Article;
 import com.o_a_jeong.gonggang_mate.form.ArticleForm;
+import com.o_a_jeong.gonggang_mate.form.UserLoginForm;
 import com.o_a_jeong.gonggang_mate.service.JoinService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +28,24 @@ public class JoinController {
         return joinService.getJoinedData();
     }
     // 1. 로그인 하는 척!
-    // 지호형이 할거에용
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody UserLoginForm userLoginForm) {
+        // 사용자 인증 로직
+        boolean isAuthenticated = joinService.authenticateUser(userLoginForm.getUsername(), userLoginForm.getPassword());
+
+        if (isAuthenticated) {
+            return ResponseEntity.ok("redirect:/main"); // 메인 페이지로 리다이렉트
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
+    }
+
+    // 1-1.로그인 후 메인 페이지 이동
+    @GetMapping("/main")
+    public String mainPage() {
+        // 메인 페이지로 이동하기 위한 로직
+        return "main"; // main.html 또는 main.jsp 등 뷰 파일 이름
+    }
 
 
     // 2. 게시물 리스트 보여주기

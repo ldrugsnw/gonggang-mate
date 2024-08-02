@@ -1,7 +1,7 @@
 package com.o_a_jeong.gonggang_mate.controller;
 
 import com.o_a_jeong.gonggang_mate.dto.JoinResult;
-import com.o_a_jeong.gonggang_mate.entity.article.Article;
+import com.o_a_jeong.gonggang_mate.entities.articledb.entity.Article;
 import com.o_a_jeong.gonggang_mate.form.ArticleForm;
 import com.o_a_jeong.gonggang_mate.service.JoinService;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,8 @@ import java.util.Optional;
 public class JoinController {
     private final JoinService joinService;
 
+    // Join
+
     public JoinController(JoinService joinService) {
         this.joinService = joinService;
     }
@@ -27,6 +29,8 @@ public class JoinController {
     }
 
     // 1. 필터링
+
+
 
     // 2. 글쓰기 -> 써진 글 게시판에 뜨게
     @GetMapping("/writeWebPage")

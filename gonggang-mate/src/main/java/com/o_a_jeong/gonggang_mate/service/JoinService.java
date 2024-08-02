@@ -2,10 +2,10 @@ package com.o_a_jeong.gonggang_mate.service;
 
 import org.springframework.transaction.annotation.Transactional;
 import com.o_a_jeong.gonggang_mate.dto.JoinResult;
-import com.o_a_jeong.gonggang_mate.entity.article.Article;
-import com.o_a_jeong.gonggang_mate.entity.article.ArticleRepository;
-import com.o_a_jeong.gonggang_mate.entity.user.User;
-import com.o_a_jeong.gonggang_mate.entity.user.UserRepository;
+import com.o_a_jeong.gonggang_mate.entities.articledb.entity.Article;
+import com.o_a_jeong.gonggang_mate.entities.articledb.repository.ArticleRepository;
+import com.o_a_jeong.gonggang_mate.entities.userdb.entity.User;
+import com.o_a_jeong.gonggang_mate.entities.userdb.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -78,6 +78,6 @@ public class JoinService {
     }
 
     // 4. 예약 기능
-    
+
 
 }

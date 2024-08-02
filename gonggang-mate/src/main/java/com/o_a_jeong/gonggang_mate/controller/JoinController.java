@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
+
+
 @RestController
 public class JoinController {
     private final JoinService joinService;
@@ -27,13 +29,15 @@ public class JoinController {
     public List<JoinResult> getJoinResults() {
         return joinService.getJoinedData();
     }
+    // 0. 로그인 하는 척!
 
     // 1. 필터링
 
-
+    // 할 지 말 지 모름 html css 박아서 영상 편집할 수도 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
 
     // 2. 글쓰기 -> 써진 글 게시판에 뜨게
-    @GetMapping("/writeWebPage")
+
+    @GetMapping("/writeWebPage") // html 에서 a 태그 신준혁이 박아야함 ㅎㅎ!!!!!!
     public String goToWritePage() {
         return "demo.html";
     }

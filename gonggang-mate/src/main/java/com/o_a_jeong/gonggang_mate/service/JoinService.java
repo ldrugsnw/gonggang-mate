@@ -74,12 +74,11 @@ public class JoinService {
         return result;
     }
 
-    //2. 게시물 등록하기
-    public Long enrollArticle(Article article){
-        articleRepository.save(article);
-
-        return article.getId();
+    //2. 모든 게시물 보여주기
+    public List<Article> showAllArticles(){
+        return articleRepository.findAll();
     }
+
 
     // 3. 게시물 클릭 --> 상세정보를 볼 수 있도록 한다.
     // ID로 Article을 조회하는 메서드
@@ -90,5 +89,10 @@ public class JoinService {
 
     // 4. 예약 기능
 
+    // 8. 게시물 등록하기
+    public Long enrollArticle(Article article){
+        articleRepository.save(article);
 
+        return article.getId();
+    }
 }

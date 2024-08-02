@@ -18,4 +18,6 @@ public class User {
     private String stuName;
     private int stuNumber;
     private String majorName;
+
+
 }

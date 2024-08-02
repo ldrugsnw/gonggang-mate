@@ -23,6 +23,17 @@ public class JoinService {
         this.articleRepository = articleRepository;
     }
 
+    // 로그인 로직
+    public boolean authenticateUser(String username, String password) {
+        // 사용자 정보를 찾고 비밀번호를 비교
+        Optional<User> userOptional = userRepository.findByStuName(username);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            return user.getPassword().equals(password); // 비밀번호 비교
+        }
+        return false; // 사용자 없음
+    }
+
     // Join !!
     public List<JoinResult> getJoinedData() {
         List<JoinResult> result = new ArrayList<>();

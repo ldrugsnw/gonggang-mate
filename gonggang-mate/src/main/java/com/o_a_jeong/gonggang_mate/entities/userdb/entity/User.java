@@ -18,4 +18,12 @@ public class User {
     private String stuName;
     private int stuNumber;
     private String majorName;
+
+
+    // 로그인 password 추가
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
 }
